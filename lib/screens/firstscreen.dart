@@ -1,5 +1,6 @@
+import 'package:connect4/widgets/game_app_bar.dart';
+import 'package:connect4/widgets/start_one_player_button.dart';
 import 'package:flutter/material.dart';
-import 'package:nice_button/nice_button.dart';
 
 class FirstScreen extends StatefulWidget {
     @override
@@ -13,29 +14,18 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: GameAppBar(appBarText: "Start game"),
       body: Container(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.only(top: 200, bottom: 200),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            NiceButton(
-              radius: 40,
-              text: "PLAY",
-              gradientColors: [secondColor, firstColor],
-              onPressed: () {Navigator.pushNamed(context, '/main');},
-            ),
+            StartOnePlayerButton(buttonText: "2 PLAYERS"),
+            StartOnePlayerButton(buttonText: "PLAY AGAINST AI"),
           ],
         ),
       ),
     );
   }
-
-  Widget _buildAppBar() {
-    return AppBar(
-      title: Text('Start game'),
-    );
-  }
-  
 }

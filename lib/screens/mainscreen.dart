@@ -1,5 +1,10 @@
+import 'package:connect4/providers/gamestate.dart';
+import 'package:connect4/widgets/game_app_bar.dart';
+import 'package:connect4/widgets/gameboard.dart';
+import 'package:connect4/widgets/info.dart';
+import 'package:connect4/widgets/new_game_button.dart';
 import 'package:flutter/material.dart';
-import 'package:nice_button/nice_button.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
     @override
@@ -7,61 +12,50 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  var firstColor = Color(0xff5b86e5), secondColor = Color(0xff36d1dc);
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: Container(
-        padding: const EdgeInsets.all(16),
+    return Consumer<GameState>(
+      builder: (context, gameState, child) {
+        return Scaffold(
+          appBar: GameAppBar(appBarText: "Connect 4"),
+          body: OrientationBuilder(
+            builder: (context, orientation) {
+              return Container(
+                padding: const EdgeInsets.all(16),
+                child: _buildContainer(orientation, gameState),
+              );
+            }
+          ),
+        );
+      }
+    );
+  }
+
+  Widget _buildContainer(Orientation orientation, GameState gameState) {
+    List<Widget> content = <Widget>[
+      Container(
+        width: 500,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _buildGameBoard(),
-            _buildStats()
+            Info(),
+            NewGameButton(),
           ],
         ),
       ),
-    );
-  }
+      Gameboard(),
+    ];
 
-  Widget _buildAppBar() {
-    return AppBar(
-      title: Text('Connect 4'),
-    );
+    if (orientation == Orientation.portrait) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: content,
+      );
+    } else {
+      return Row(
+        children: content,
+      );
+    }
   }
-
-  Widget _buildStats() {
-    return Column(
-      children: <Widget>[
-        Text('Connect 4')
-      ],
-    );
-  }
-
-  Widget _buildGameBoard() {
-    return Column(
-      children: <Widget>[ 
-        for(var i = 0; i < 6; i++)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              for(var j = 0; i < 7; j++)
-                ButtonTheme(
-                  minWidth: 30,
-                  height: 30,
-                  child: RaisedButton(
-                    onPressed: () {},
-                    child: Text(""),
-                  ),
-                ),
-              ],
-            ),
-      ], 
-    );
-  }
-  
 }

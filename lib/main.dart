@@ -7,7 +7,7 @@ import 'providers/gamestate.dart';
 void main() {
   runApp(
     ChangeNotifierProvider<GameState>(
-      builder: (_) => GameState(),
+      create: (_) => GameState(),
       child: MaterialApp(
         title: "Navigation",
         initialRoute: "/",
