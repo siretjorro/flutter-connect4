@@ -1,10 +1,8 @@
-import 'package:connect4/models/ai.dart';
 import 'package:connect4/models/game.dart';
 import 'package:flutter/foundation.dart';
 
 class GameState with ChangeNotifier {
   final Game _game = Game();
-  final Ai _ai = Ai();
 
   int get currentPlayer => _game.currentPlayer;
   bool get over => _game.over;

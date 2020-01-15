@@ -17,7 +17,7 @@ class _NewGameButtonState extends State<NewGameButton> {
       background: Colors.white,
       radius: 40,
       text: "NEW GAME",
-      gradientColors: [Colors.red, Colors.yellow],
+      gradientColors: [Colors.yellow, Colors.red, Colors.yellow],
       onPressed: () {
         gameState.newGame();
       },

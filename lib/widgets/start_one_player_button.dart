@@ -12,9 +12,9 @@ class StartOnePlayerButton extends StatelessWidget {
       background: Colors.white,
       radius: 40,
       text: buttonText,
-      gradientColors: [Colors.red, Colors.yellow],
+      gradientColors: [Colors.yellow, Colors.red, Colors.yellow],
       onPressed: () {
-        Navigator.pushNamed(context, "/main");
+        Navigator.pushNamed(context, "/main", arguments: this.buttonText);
       },
     );
   }

@@ -14,8 +14,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameState>(
-      builder: (context, gameState, child) {
+    final GameState gameState = Provider.of<GameState>(context);
+    final String args = ModalRoute.of(context).settings.arguments;
+
+    // return Consumer<GameState>(
+    //   builder: (context, gameState, child) {
         return Scaffold(
           appBar: GameAppBar(appBarText: "Connect 4"),
           body: OrientationBuilder(
@@ -27,8 +30,8 @@ class _MainScreenState extends State<MainScreen> {
             }
           ),
         );
-      }
-    );
+    //   }
+    // );
   }
 
   Widget _buildContainer(Orientation orientation, GameState gameState) {

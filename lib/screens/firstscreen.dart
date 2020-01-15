@@ -22,7 +22,7 @@ class _FirstScreenState extends State<FirstScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             StartOnePlayerButton(buttonText: "2 PLAYERS"),
-            StartOnePlayerButton(buttonText: "PLAY AGAINST AI"),
+            StartOnePlayerButton(buttonText: "PLAY ALONE"),
           ],
         ),
       ),
