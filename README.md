@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+TODO: use Monte Carlo tree search to add 1 player option
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
