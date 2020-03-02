@@ -61,6 +61,6 @@ class Game {
       }
     }
 
-    return false; // no winner
+    return false;
   }
 }

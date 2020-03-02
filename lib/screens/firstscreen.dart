@@ -1,6 +1,7 @@
 import 'package:connect4/widgets/game_app_bar.dart';
 import 'package:connect4/widgets/start_one_player_button.dart';
 import 'package:flutter/material.dart';
+import 'package:connect4/enums/constants.dart' as Constants;
 
 class FirstScreen extends StatefulWidget {
     @override
@@ -12,17 +13,16 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      appBar: GameAppBar(appBarText: "Start game"),
+      appBar: GameAppBar(appBarText: Constants.START_GAME),
       body: Container(
         padding: EdgeInsets.only(top: 200, bottom: 200),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            StartOnePlayerButton(buttonText: "2 PLAYERS"),
-            StartOnePlayerButton(buttonText: "PLAY ALONE"),
+            StartOnePlayerButton(buttonText: Constants.TWO_PLAYERS),
+            StartOnePlayerButton(buttonText: Constants.ONE_PLAYER),
           ],
         ),
       ),

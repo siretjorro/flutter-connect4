@@ -5,6 +5,7 @@ import 'package:connect4/widgets/info.dart';
 import 'package:connect4/widgets/new_game_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:connect4/enums/constants.dart' as Constants;
 
 class MainScreen extends StatefulWidget {
     @override
@@ -16,32 +17,28 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final GameState gameState = Provider.of<GameState>(context);
     final String args = ModalRoute.of(context).settings.arguments;
-
-    // return Consumer<GameState>(
-    //   builder: (context, gameState, child) {
-        return Scaffold(
-          appBar: GameAppBar(appBarText: "Connect 4"),
-          body: OrientationBuilder(
-            builder: (context, orientation) {
-              return Container(
-                padding: const EdgeInsets.all(16),
-                child: _buildContainer(orientation, gameState),
-              );
-            }
-          ),
-        );
-    //   }
-    // );
+    return Scaffold(
+      appBar: GameAppBar(appBarText: Constants.APP_NAME),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return Container(
+            padding: const EdgeInsets.all(16),
+            child: _buildContainer(orientation, gameState),
+          );
+        }
+      ),
+    );
   }
 
   Widget _buildContainer(Orientation orientation, GameState gameState) {
     List<Widget> content = <Widget>[
       Container(
-        width: 500,
+        // width: 800,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Info(),
+            Container(height: 50,),
             NewGameButton(),
           ],
         ),
