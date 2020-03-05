@@ -1,8 +1,8 @@
-# connect4
-
-A new Flutter project.
+# A simple Connect 4 app
 
 TODO: use Monte Carlo tree search to add 1 player option
+
+<img src="https://i.ibb.co/P4gxcgs/Simulator-Screen-Shot-i-Phone-11-Pro-Max-2020-02-28-at-10-46-43.png" alt="Screenshot_1" width="200"> <img src="https://i.ibb.co/CHWwJqZ/Simulator-Screen-Shot-i-Phone-11-Pro-Max-2020-02-28-at-10-46-52.png" alt="Screenshot_2" width="200">
 
 ## Getting Started
 
